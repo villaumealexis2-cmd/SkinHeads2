@@ -31,10 +31,11 @@ La commande `/skinheads info <joueur>` donne l'id et le custom_model_data.
 - `/skinheads regen` : génère les images manquantes et lance `iazip`
 - `/skinheads check` : comparaison forcée des skins, puis `iazip` si changement
 - `/skinheads info <joueur>` / `/skinheads give <cible> [profil]`
+- `/skinheads remake <pseudo>` : force la regénération de l'icône d'un joueur déjà enregistré
+- `/skinheads emulate <pseudo>` : simule la première connexion d'un joueur (enregistrement + pré-génération de la texture)
 
 ## Points d'attention
 
 - Les images ne deviennent visibles en jeu qu'après `iazip` (donc le lendemain à minuit,
   ou immédiatement avec `/skinheads regen`).
-- L'API est appelée avec l'UUID. Si elle ne le supporte pas pour les comptes cracké, mets
-  `api.use-name: true`.
+- L'API est appelée avec le pseudo (`api.use-name: true`), l'UUID n'étant pas supporté.

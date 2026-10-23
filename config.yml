@@ -1,0 +1,52 @@
+# ============================================================
+#  SkinHeads - configuration
+# ============================================================
+
+# URL de l'API. {uuid} est remplacé par l'UUID du joueur (avec tirets),
+# {size} par la valeur "size" ci-dessous.
+# (Si tu préfères utiliser le pseudo : remplace {uuid} par {name} et mets
+#  use-name: true)
+api:
+  url: "https://mc-api.io/render/BUST/{name}/JAVA?size={size}"
+  use-name: true
+  size: 8
+  timeout-seconds: 15
+  # Pause entre deux requêtes API (ms) pour ne pas se faire bloquer
+  delay-between-requests-ms: 400
+
+# Cote ItemsAdder
+itemsadder:
+  namespace: "amethyy"
+  # Chemin du dossier "contents" du namespace, relatif au dossier plugins/
+  contents-folder: "ItemsAdder/contents/amethyy"
+  # Fichier YAML généré avec les items (dans contents-folder/items/)
+  items-file: "skins.yml"
+  # Dossier des textures (dans contents-folder/resource_pack/assets/<namespace>/textures/)
+  textures-subfolder: "item/skins"
+  # Préfixe de l'id des items : <prefix><uuid sans tirets> ex: skin_ab12...
+  id-prefix: "skin_"
+
+# Item de base : un tesson de poterie (item_model/custom_model_data)
+item:
+  material: ANGLER_POTTERY_SHERD
+  # Premier custom_model_data attribué, puis +1 à chaque nouveau joueur
+  first-custom-model-data: 25
+  display-name: "&7Profil de &f{name}"
+
+# Tâches planifiées
+schedule:
+  # Fuseau horaire utilisé pour "minuit"
+  timezone: "Europe/Paris"
+  # Heure du déclenchement quotidien (mise à jour + /iazip s'il y a du nouveau)
+  daily-time: "00:00"
+  # Jour de la vérification hebdomadaire des changements de skin
+  weekly-day: "SUNDAY"
+  # Commande exécutée en console pour regénérer le pack
+  zip-command: "iazip"
+  # Commande exécutée en console après /iazip (laisser vide pour désactiver)
+  reload-command: ""
+  # Délai (ticks) entre /iazip et la commande suivante
+  reload-delay-ticks: 100
+
+messages:
+  prefix: "&8[&dSkinHeads&8] &7"
